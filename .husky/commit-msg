@@ -1,0 +1,5 @@
+echo "Verifying if the commit message is correct"
+
+npx --no -- commitlint --edit ${1} || (exit 1)
+
+echo "Commit message is correct"
