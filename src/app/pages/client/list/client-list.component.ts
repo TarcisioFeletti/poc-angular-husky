@@ -30,6 +30,6 @@ export class ClientListComponent {
   dataSource = ELEMENT_DATA;
 
   getGender(gender: GenderKeyType) {
-    return GenderWithLabels['FEMININO'].label;
+    return GenderWithLabels[gender].label;
   }
 }

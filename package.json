@@ -8,8 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:poc-angular-husky": "node dist/poc-angular-husky/server/server.mjs",
-    "lint": "prettier --check .",
-    "format": "prettier --write .",
+    "format": "prettier --write src/.",
     "prepare": "husky",
     "check": "eslint src/."
   },
