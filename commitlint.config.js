@@ -27,14 +27,25 @@ module.exports = {
         // Desativa a verificação do ponto final no cabeçalho (não estamos impondo que o cabeçalho deve terminar com um ponto final).
         'header-full-stop': [0],
 
-        // Define um padrão regex para o cabeçalho do commit.
-        // O padrão exige que o cabeçalho siga o formato: <type> - [WRH-<numero>] - <mensagem do commit>.
+        // Define um padrão regex para o sujeito do commit.
+        // O padrão exige que o sujeito siga o formato: [WRH-<numero>] - <mensagem do commit>.
         // Explicação da regex:
-        // ^([a-z]+): Início da string seguido por um ou mais caracteres minúsculos (tipo do commit)
-        // -: Um hífen seguido por um espaço
         // \[WRH-\d+\]: Texto fixo "[WRH-" seguido por um ou mais dígitos e um fechamento de colchete "]"
         // -: Outro hífen seguido por um espaço
         // .+: Uma ou mais ocorrências de qualquer caractere (mensagem do commit)
-        'header-pattern': [2, 'always', /^([a-z]+) - \[WRH-\d+\] - .+$/],
+        'subject-pattern': [2, 'always'],
     },
+    plugins: [
+        {
+            rules: {
+                'subject-pattern': ({ subject }) => {
+                    const regex = new RegExp(/^\[WRH-\d+\] - .{1,}$/);
+                    return [
+                        regex.test(subject),
+                        `Your subject should follow the commit message pattern ([WRH-<numero da task>] - <mensagem do commit>)`,
+                    ];
+                },
+            },
+        },
+    ],
 };
