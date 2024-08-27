@@ -6,7 +6,7 @@ echo "Lint check successfull"
 
 #Processo de Formatação do código
 echo "Formating project"
-npm run format ||
+npm run format && git add . ||
 (echo 'Format problems ocurred' && exit 1)
 echo "Format process ended"
 

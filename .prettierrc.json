@@ -4,6 +4,5 @@
     "semi": false,
     "singleQuote": true,
     "tabs": true,
-    "arrowParens": "avoid",
-    "singleAttributePerLine": true
+    "arrowParens": "avoid"
 }
