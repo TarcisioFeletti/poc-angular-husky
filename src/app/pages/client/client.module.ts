@@ -6,7 +6,7 @@ import { ClientRoutingModule } from './client-routing.module'
 import { MatTableModule } from '@angular/material/table'
 
 @NgModule({
-    declarations: [ClientListComponent, ClientRegisterComponent],
-    imports: [CommonModule, ClientRoutingModule, MatTableModule],
+	declarations: [ClientListComponent, ClientRegisterComponent],
+	imports: [CommonModule, ClientRoutingModule, MatTableModule],
 })
 export class ClientModule {}
