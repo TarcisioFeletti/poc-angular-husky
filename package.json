@@ -56,7 +56,7 @@
     "typescript-eslint": "^8.2.0"
   },
   "lint-staged": {
-    "src/*.ts": [
+    "src/*": [
       "npm run format"
     ]
   }
