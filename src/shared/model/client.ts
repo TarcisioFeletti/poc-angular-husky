@@ -1,4 +1,4 @@
-import { GenderKeyType } from './gender'
+import { GenderKeyType } from "./gender"
 
 export interface ClientInterface {
 	id: number
