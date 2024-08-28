@@ -4,16 +4,7 @@
 			<h1 style="text-align: center">Listagem de clientes</h1>
 		</header>
 		<section>
-			<p>Adicionando mais um parametro
-
-
-
-
-
-
-
-
-			</p>
+			<p>Adicionando mais um parametro</p>
 		</section>
 		<section>
 			<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -46,7 +37,10 @@
 				</ng-container>
 
 				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-				<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+				<tr
+					mat-row
+					*matRowDef="let row; columns: displayedColumns"
+				></tr>
 			</table>
 		</section>
 	</div>
