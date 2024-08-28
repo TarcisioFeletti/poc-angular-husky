@@ -1,19 +1,19 @@
-import { NgModule } from "@angular/core"
-import { RouterModule, Routes } from "@angular/router"
-import { ClientListComponent } from "./list/client-list.component"
-import { ClientRegisterComponent } from "./register/client-register.component"
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
+import { ClientListComponent } from './list/client-list.component'
+import { ClientRegisterComponent } from './register/client-register.component'
 
 const routes: Routes = [
 	{
-		path: "",
+		path: '',
 		component: ClientListComponent,
 	},
 	{
-		path: "new",
+		path: 'new',
 		component: ClientRegisterComponent,
 	},
 	{
-		path: "edit",
+		path: 'edit',
 		component: ClientRegisterComponent,
 	},
 ]
