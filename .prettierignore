@@ -1,0 +1,9 @@
+package-lock.json
+public
+node_modules
+.angular
+.husky
+.vscode
+.editorconfig
+eslint.config.mjs
+.prettierignore
