@@ -1,0 +1,13 @@
+#Processo de lint (busca por code smells) no código
+echo "Checking for linting errors..."
+npm run check ||
+(echo 'Linting errors encountered' && exit 1)
+echo "Lint check successfull"
+
+#Processo de Formatação do código
+echo "Formating project"
+npx lint-staged && git add . ||
+(echo 'Format problems ocurred' && exit 1)
+echo "Format process ended"
+
+echo "Pre-commit stage is done"
