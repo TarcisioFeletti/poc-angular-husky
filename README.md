@@ -1,27 +1,39 @@
-# PocAngularHusky
+# POC · Git hooks em projeto Angular com Husky
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.1.
+Prova de conceito para garantir qualidade **antes do código chegar ao repositório**: hooks de Git que formatam, validam e testam o projeto automaticamente a cada commit e push.
 
-## Development server
+## O que foi testado
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Husky** para registrar hooks de Git versionados junto com o projeto (pasta `.husky/`), sem depender de configuração manual em cada máquina.
+- **lint-staged + Prettier** no `pre-commit`: formata apenas os arquivos alterados, deixando o commit rápido.
+- **Commitlint** no `commit-msg`: bloqueia mensagens fora do padrão [Conventional Commits](https://www.conventionalcommits.org/pt-br/) (`feat:`, `fix:`, `test:`...).
+- **Testes no `pre-push`**: roda os testes unitários em modo headless e impede o push se algum falhar.
+- Projeto base em **Angular 18 com SSR**.
 
-## Code scaffolding
+## Fluxo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+git commit  →  pre-commit: Prettier nos arquivos alterados
+            →  commit-msg: valida o padrão da mensagem
+git push    →  pre-push: roda os testes unitários
+```
 
-## Build
+## Como rodar
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Pré-requisitos: Node.js 18+ e npm.
 
-## Running unit tests
+```bash
+npm install     # o script "prepare" instala os hooks do Husky automaticamente
+npm start       # aplicação em http://localhost:4200
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Para ver os hooks em ação:
 
-## Running end-to-end tests
+```bash
+git commit -m "mensagem qualquer"      # recusado pelo commitlint
+git commit -m "feat: teste de hooks"   # aceito
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Stack
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Angular 18 · TypeScript · Husky · lint-staged · Prettier · Commitlint · Jasmine/Karma
